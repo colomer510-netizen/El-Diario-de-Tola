@@ -8,6 +8,8 @@ import type { Metadata } from "next";
 // Next.js 15+ espera que params sea una Promesa
 type Props = { params: Promise<{ id: string }> };
 
+export const revalidate = 60; // ISR en Vercel Cache
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const article = await prisma.article.findUnique({

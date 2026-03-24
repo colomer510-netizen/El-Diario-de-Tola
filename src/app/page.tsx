@@ -6,6 +6,8 @@ import { User, Article } from "@prisma/client";
 // Tipado para articulo con autor incluido
 type ArticleWithAuthor = Article & { author: Pick<User, "name"> };
 
+export const revalidate = 60; // Regenerar portada cada 60 segundos en Vercel Cache
+
 function CategoryPill({ category, className = "" }: { category: string; className?: string }) {
   // Colores Tola adaptados a un look más moderno (Pills suaves, texto oscuro)
   let bgColor = "bg-blue-100/80";
