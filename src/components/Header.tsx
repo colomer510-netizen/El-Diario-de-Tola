@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
+import { WeatherWidget } from "./WeatherWidget";
 
 export function Header() {
   const { data: session } = useSession();
@@ -21,7 +22,10 @@ export function Header() {
               day: "numeric",
             }).format(new Date())}
           </span>
-          <span>Periodismo ciudadano para nuestra comunidad</span>
+          <div className="flex items-center gap-6">
+            <span>Periodismo ciudadano para nuestra comunidad</span>
+            <WeatherWidget />
+          </div>
         </div>
       </div>
 

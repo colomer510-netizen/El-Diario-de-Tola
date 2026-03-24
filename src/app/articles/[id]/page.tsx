@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { getCategoryLabel, formatDate } from "@/lib/utils";
+import { ShareButtons } from "@/components/ShareButtons";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -108,6 +109,9 @@ export default async function ArticlePage({ params }: Props) {
         <article className="prose prose-lg prose-blue max-w-none text-gray-700 font-sans leading-loose whitespace-pre-wrap">
           {article.content}
         </article>
+
+        {/* Share Buttons */}
+        <ShareButtons title={article.title} />
 
         {/* Footer del artículo */}
         <div className="mt-16 pt-8 border-t border-gray-200">
